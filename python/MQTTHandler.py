@@ -5,6 +5,7 @@
 # GRVA - Augumented and Virtual Reality Group
 # ------------------------------------------------------------------------------
 # Author: Paulo Camargos
+# Date: 23/12/2018
 # Contact: paulocamargoss@outlook.com
 # Class: MQTTHandler
 # ------------------------------------------------------------------------------
