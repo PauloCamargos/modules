@@ -19,7 +19,7 @@
 # and follow the given instructions. 
 # ------------------------------------------------------------------------------
 import os
-import subprocess
+import platform
 import paho.mqtt.client as mqtt
 from time import sleep
 # ------------------------------------------------------------------------------
@@ -94,7 +94,11 @@ class MQTTHandler:
         """
 
         print('[INFO] Opening Mosquitto broker...')
-        self.mosquitto_broker = os.popen('mosquitto')
+        if platform.system() == 'Linux':
+            self.mosquitto_broker = os.popen('mosquitto -d')
+        else:
+            self.mosquitto_broker = os.popen('mosquitto')
+
         print('[OK] Success! Mosquitto sever running.')
 
     def close_mosquitto_broker(self):
@@ -225,7 +229,7 @@ class MQTTHandler:
         
         if message is not None:
             self.connect_client()
-            self.publish_message(self.topic, message)            
+            self.client.publish(self.topic, message)            
             self.disconnet_client()
         else:
             print('[ERROR] No messagem to relay')
