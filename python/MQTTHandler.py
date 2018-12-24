@@ -25,7 +25,7 @@ from time import sleep
 # ------------------------------------------------------------------------------
 
 
-class MQTTHandler():
+class MQTTHandler:
     """
     MQTTHandler
     
@@ -35,7 +35,6 @@ class MQTTHandler():
     protocol with the Mosquitto broker. For example of use, checkout 
     the test() function at the end of this module.
     """
-
 
     def __init__(self, broker='127.0.0.1', client_name='client', topic='topic', port=1883, receive_message_back=False):
         """
@@ -68,8 +67,6 @@ class MQTTHandler():
         self.port = port
 
         self.setup_callback_methods()
-
-        
 
     def setup_callback_methods(self):
         """
@@ -225,8 +222,6 @@ class MQTTHandler():
             The message to be published.
         
         """
-
-
         
         if message is not None:
             self.connect_client()
